@@ -3,7 +3,8 @@ import shutil
 
 shutil.rmtree('dist', ignore_errors=True)
 os.system('tsc')
-shutil.copyfile('.npmignore', 'dist/.npmignore')
+try: shutil.copyfile('.npmignore', 'dist/.npmignore')
+except: pass
 shutil.copyfile('package.json', 'dist/package.json')
 
 os.system(' && '.join([
